@@ -23,7 +23,7 @@ RUN ARCH= && PREFIX='www' && URLPATH='dist' && dpkgArch="$(dpkg --print-architec
   && echo "" | tee "$GITHUB_ENV" "$GITHUB_PATH" \
   && mkdir -p "$RUNNER_TOOL_CACHE" \
   # libatomic1 for arm
-  && apt-get update && apt-get install -y ca-certificates curl wget gnupg dirmngr xz-utils libatomic1 --no-install-recommends \
+  && apt-get update && apt-get install -y ca-certificates git curl wget gnupg dirmngr xz-utils libatomic1 --no-install-recommends \
   && rm -rf /var/lib/apt/lists/* \
   && curl -fsSLO --compressed "https://$PREFIX.nodejs.org/$URLPATH/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH.tar.xz" \
   && tar -xJf "node-v$NODE_VERSION-linux-$ARCH.tar.xz" -C /usr/local --strip-components=1 --no-same-owner \
